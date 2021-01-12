@@ -1,0 +1,36 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "C/C++: g++.exe build active file",
+            "type": "shell",
+            "command": "g++",
+            "args": [
+                "-Wall",
+                "${file}",
+                "-o",
+                "${fileBasenameNoExtension}.exe",
+                "-I dependencies/glew/include",
+                "-I dependencies/glfw/include",
+                "-lglew32",
+                "-lglfw3",
+                "-lgdi32",
+                "-luser32",
+                "-lopengl32",
+                "-lkernel32",
+                "-L dependencies/glfw/lib-mingw",
+                "-L dependencies/glew/lib/Release/Win32"
+            ],
+            "options":{
+                "cwd": "${workspaceFolder}"
+            },
+            "problemMatcher": ["$gcc"],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        }
+    ]
+}
